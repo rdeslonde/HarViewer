@@ -17,4 +17,11 @@
     'templates-common',
     'ui.router.state',
     'ui.router',
+    'angularFileUpload',
+    'ui.grid',
+    'ui.grid.resizeColumns',
+    'ui.grid.selection',
+    'ui.grid.autoResize',
+    'ui.grid.exporter',
+    'ui.bootstrap'
 ])));

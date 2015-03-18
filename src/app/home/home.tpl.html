@@ -1,11 +1,137 @@
-<h1>Home of Har viewer</h1>
 
-<p>Code it up</p>
+<accordion close-others="false">
 
-<p>
-    <span ng-bind="model.someVar" />
-    <ul>
-        <li ng-repeat="item in model.someList">{{item}}</li>
-    </ul>
-    <button class="btn btn-primary" ng-click="model.someFunctionUsedByTheHomePage()">Click Me</button>
-</p>
+    <accordion-group is-open="loadIsOpen == true">
+
+        <accordion-heading>
+            Load Har Data
+        </accordion-heading>
+
+        <div>
+
+            <div>
+
+                <textarea class="form-control" ng-model="pastedHar.text" rows="10" placeholder="Paste har in here..."></textarea>
+                <br>
+                <button class="btn btn-sm btn-primary btn-default comm-action-button" ng-click="loadHar()">Load</button>
+                <button class="btn btn-sm btn-primary btn-default comm-action-button" ng-click="clearHar()">Clear</button>
+
+            </div>
+
+        </div>
+
+    </accordion-group>
+
+    <accordion-group is-open="true">
+
+        <accordion-heading>
+            Selected Record Details
+        </accordion-heading>
+
+        <div class="form-group">
+
+            <tabset>
+                <tab heading="General" class="tab-title">
+                    <div>
+                        <div class="row">
+                            <div class="col-sm-1">Started DateTime</div>
+                            <div class="col-sm-6">{{selectedRow.startedDateTime}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">Method</div>
+                            <div class="col-sm-6">{{selectedRow.method}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">Url</div>
+                            <div class="col-sm-6">{{selectedRow.url}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">Status</div>
+                            <div class="col-sm-6">{{selectedRow.responseStatus}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">Blocked</div>
+                            <div class="col-sm-6">{{selectedRow.blocked}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">DNS</div>
+                            <div class="col-sm-6">{{selectedRow.dns}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">Connect</div>
+                            <div class="col-sm-6">{{selectedRow.connect}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">Send</div>
+                            <div class="col-sm-6">{{selectedRow.send}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">Wait</div>
+                            <div class="col-sm-6">{{selectedRow.wait}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">Receive</div>
+                            <div class="col-sm-6">{{selectedRow.receive}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">Ssl</div>
+                            <div class="col-sm-6">{{selectedRow.ssl}}</div>
+                        </div>
+
+                    </div>
+
+                </tab>
+                <tab heading="Request Headers" class="tab-title">
+
+                    <div class="row" ng-repeat="header in selectedRow.request.headers">
+                        <div class="col-sm-1">{{header.name}}</div>
+                        <div class="col-sm-6">{{header.value}}</div>
+                    </div>
+
+                </tab>
+                <tab heading="Request Cookies" class="tab-title">
+                    <div class="row" ng-repeat="cookie in selectedRow.request.cookies">
+                        <div class="col-sm-2">{{cookie.name}}</div>
+                        <div class="col-sm-6">{{cookie.value}}</div>
+                    </div>
+                </tab>
+                <tab heading="Post Data" class="tab-title">
+                    <div class="row" ng-repeat="postDatum in selectedRow.request.postData.params">
+                        <div class="col-sm-2">{{postDatum.name}}</div>
+                        <div class="col-sm-6">{{postDatum.value}}</div>
+                    </div>
+                </tab>
+                <tab heading="Response Headers" class="tab-title">
+                    <div class="row" ng-repeat="header in selectedRow.response.headers">
+                        <div class="col-sm-2">{{header.name}}</div>
+                        <div class="col-sm-6">{{header.value}}</div>
+                    </div>
+                </tab>
+                <tab heading="Response Cookies" class="tab-title">
+                    <div class="row" ng-repeat="cookie in selectedRow.response.cookies">
+                        <div class="col-sm-2">{{cookie.name}}</div>
+                        <div class="col-sm-6">{{cookie.value}}</div>
+                    </div>
+                </tab>
+            </tabset>
+        </div>
+
+    </accordion-group>
+
+</accordion>
+
+
+<div class="panel panel-default top-panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">Data</h3>
+    </div>
+    <div class="panel-body panel-group">
+        <div>
+
+            <div ui-grid="harFileGrid" ui-grid-resize-columns ui-grid-auto-resize ui-grid-selection ui-grid-exporter></div>
+
+
+
+        </div>
+    </div>
+</div>

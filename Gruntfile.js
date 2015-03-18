@@ -81,11 +81,19 @@ module.exports = function(grunt) {
                 'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
                 'vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js',
                 'vendor/angular-ui-router/release/angular-ui-router.js',
-                'vendor/angular-ui-utils/modules/route/route.js'
+                'vendor/angular-ui-utils/modules/route/route.js',
+                'vendor/ng-file-upload/angular-file-upload-shim.min.js',
+                'vendor/ng-file-upload/angular-file-upload.min.js',
+                'vendor/angular-ui-grid/ui-grid.min.js',
             ],
             css: [
             ],
             assets: [
+                'vendor/angular-ui-grid/ui-grid.css',
+                'vendor/angular-ui-grid/ui-grid.eot',
+                'vendor/angular-ui-grid/ui-grid.svg',
+                'vendor/angular-ui-grid/ui-grid.ttf',
+                'vendor/angular-ui-grid/ui-grid.woff'
             ]
         }
     };

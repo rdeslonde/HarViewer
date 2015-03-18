@@ -1,14 +1,14 @@
 (function(app) {
 
-    app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    app.config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/home');
-    }]);
+    });
 
     app.run(function () {});
 
-    app.controller('AppController', ['$scope', function ($scope) {
+    app.controller('AppController', function ($scope) {
 
-    }]);
+    });
 
 }(angular.module("HarViewer", [
     'HarViewer.home',
@@ -17,4 +17,11 @@
     'templates-common',
     'ui.router.state',
     'ui.router',
+    'angularFileUpload',
+    'ui.grid',
+    'ui.grid.resizeColumns',
+    'ui.grid.selection',
+    'ui.grid.autoResize',
+    'ui.grid.exporter',
+    'ui.bootstrap'
 ])));

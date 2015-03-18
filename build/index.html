@@ -3,6 +3,8 @@
 <head>
     <title ng-bind="pageTitle"></title>
 
+    <script type="text/javascript" src="/src/app/data/testhar.js"></script>
+
     <!-- font awesome from BootstrapCDN -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
@@ -13,29 +15,45 @@
     <script type="text/javascript" src="vendor/angular/angular.js"></script>
     <script type="text/javascript" src="vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script type="text/javascript" src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="vendor/ng-file-upload/angular-file-upload-shim.min.js"></script>
+    <script type="text/javascript" src="vendor/ng-file-upload/angular-file-upload.min.js"></script>
+    <script type="text/javascript" src="vendor/angular-ui-grid/ui-grid.min.js"></script>
     <script type="text/javascript" src="src/app/about/about.module.js"></script>
     <script type="text/javascript" src="src/app/home/home.module.js"></script>
     <script type="text/javascript" src="src/app/about/about.js"></script>
     <script type="text/javascript" src="src/app/app.js"></script>
+    <script type="text/javascript" src="src/app/data/testhar.js"></script>
     <script type="text/javascript" src="src/app/home/home.js"></script>
     <script type="text/javascript" src="templates-common.js"></script>
     <script type="text/javascript" src="templates-app.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/ui-grid.css" />
+    <link rel="stylesheet" type="text/css" href="assets/main.css" />
+
 </head>
 <body>
-    <header>
-        <nav class="container navbar-default">
-            <ul class="nav navbar-nav">
-                <li ui-sref-active="active">
-                    <a ui-sref="home">Home</a>
-                </li>
-                <li ui-sref-active="active">
-                    <a ui-sref="about">About</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
 
-    <div class="container" ui-view="main"></div>
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li ui-sref-active="active">
+                        <a ui-sref="home">Home</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="about">About</a>
+                    </li>
+                </ul>
+
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+</header>
+
+
+    <div class="container container-full" ui-view="main"></div>
 
     <footer class="container">
         (c) 2015 Richard DesLonde
