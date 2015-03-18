@@ -1,6 +1,6 @@
 # Har viewer
 
-A simplified version of the ngBoilerplate angular project template.
+A har data viewer with sort, filter, and export to CSV.
 
 ***
 
